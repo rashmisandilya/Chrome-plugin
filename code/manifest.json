@@ -1,0 +1,35 @@
+{
+"update_url":"http://clients2.google.com/service/update2/crx",
+  "manifest_version": 2,
+  "name": "RestoScrapper-Your Review detective",
+  "version": "1.0",
+  "description": "Restaurant ratings comparision extension for Yelp, TripAdvisor and Four Square that finds the best place to dine for you.",
+  //"background": {
+    //"page": "background.html"
+  //},
+
+  "permissions": [
+    "https://*/*",
+    "http://*/*",
+    "tabs",
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+     {
+       "matches": ["http://www.yelp.com/biz*","https://www.yelp.com/biz*","http://www.tripadvisor.com/Restaurant*","https://www.tripadvisor.com/Restaurant*"],
+       "js" : ["jquery.js","contentscript.js"]
+     }
+   ]
+  // "web_accessible_resources": [
+  //   "close_button_red.png"
+  // ]
+}
